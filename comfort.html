@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comfort Card For Sima</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        135deg,
+        #d7f3ff,
+        #f7e7ff,
+        #fff6d5
+    );
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+.open-btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#6a5acd;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.open-btn:hover{
+    transform:scale(1.05);
+}
+
+.card{
+    width:380px;
+    max-width:90vw;
+    min-height:480px;
+    margin-top:20px;
+    position:relative;
+    display:none;
+    perspective:1000px;
+}
+
+.card-inner{
+    width:100%;
+    height:100%;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+    animation:fadeIn 1s ease;
+}
+
+.card-header{
+    height:180px;
+    background:
+    linear-gradient(rgba(106,90,205,.5),
+    rgba(255,255,255,.1)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card-header h1{
+    color:white;
+    text-shadow:2px 2px 10px rgba(0,0,0,.4);
+    font-size:32px;
+}
+
+.card-content{
+    padding:30px;
+    line-height:1.8;
+    color:#555;
+}
+
+.card-content h2{
+    color:#6a5acd;
+    margin-bottom:15px;
+}
+
+.card-content p{
+    margin-bottom:12px;
+}
+
+.signature{
+    margin-top:20px;
+    font-style:italic;
+    color:#6a5acd;
+    font-weight:bold;
+}
+
+.hearts{
+    position:absolute;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    color:#ff7eb3;
+    font-size:20px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+.flowers{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.flower{
+    position:absolute;
+    font-size:30px;
+    animation:flowerFloat 8s linear forwards;
+    opacity:0;
+}
+
+@keyframes flowerFloat{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <button class="open-btn" onclick="openCard()">
+        Open Comfort Card 💜
+    </button>
+
+    <div class="card" id="card">
+        <div class="hearts" id="hearts"></div>
+
+        <div class="card-inner">
+
+            <div class="card-header">
+                <h1>MaNkosi 💜</h1>
+            </div>
+			<div class="hearts" id="hearts"></div>
+<div class="flowers" id="flowers"></div>
+
+            <div class="card-content">
+
+                <h2>A Message of Comfort</h2>
+
+                <p>
+                    Dear Sima,
+                </p>
+
+                <p>
+                    During this difficult time, I want you to know that
+                    you are not alone. My thoughts and prayers are with
+                    you and your sister.
+                </p>
+
+                <p>
+                    I hope each day brings strength, comfort, and healing.
+                    May your sister recover quickly and may peace fill
+                    your heart even in moments of uncertainty.
+                </p>
+
+                <p>
+                    Remember that even the darkest nights eventually give
+                    way to the sunrise. Hold onto hope, stay strong, and
+                    trust that better days are ahead.
+                </p>
+
+                <p>
+                    Wishing your sister a speedy recovery and wishing you
+                    courage, comfort, and endless support.
+                </p>
+
+                <div class="signature">
+                    With love and care ❤️
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<audio id="music" loop>
+    <source src="billie_eilish_amp_blackbear_ocean_eyes_lyrics_mp3_63240.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+function openCard(){
+    document.querySelector(".open-btn").style.display="none";
+    document.getElementById("card").style.display="block";
+
+    const music=document.getElementById("music");
+    music.play();
+
+    createHearts();
+//added code
+function openCard(){
+
+    document.querySelector(".open-btn")
+        .style.display = "none";
+
+    document.getElementById("card")
+        .style.display = "block";
+
+    const music =
+        document.getElementById("music");
+
+    music.volume = 0.3;
+    music.play();
+
+    createHearts();
+    createFlowers();
+}
+}
+
+function createHearts(){
+    const container=document.getElementById("hearts");
+
+    setInterval(()=>{
+        const heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML="💜,🤍";
+
+        heart.style.left=Math.random()*100+"%";
+        heart.style.fontSize=(15+Math.random()*25)+"px";
+
+        container.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },6000);
+
+    },200);
+}
+
+//added code
+function createFlowers(){
+
+    const flowerContainer =
+        document.getElementById("flowers");
+
+    const flowerTypes = [
+        "🌸",
+        "🌷",
+        "🌹",
+        "🌺",
+        "🌻",
+        "💐"
+    ];
+
+    setInterval(()=>{
+
+        const flower =
+            document.createElement("div");
+
+        flower.classList.add("flower");
+
+        flower.innerHTML =
+            flowerTypes[
+                Math.floor(
+                    Math.random() *
+                    flowerTypes.length
+                )
+            ];
+
+        flower.style.left =
+            Math.random()*100 + "%";
+
+        flower.style.fontSize =
+            (25 + Math.random()*25) + "px";
+
+        flower.style.animationDuration =
+            (6 + Math.random()*4) + "s";
+
+        flowerContainer.appendChild(flower);
+
+        setTimeout(()=>{
+            flower.remove();
+        },10000);
+
+    },500);
+}
+</script>
+
+</body>
+</html>
